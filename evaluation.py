@@ -89,7 +89,6 @@ Explanation: The analysis of the inequality \( x + y > 1 \) is incorrect. The ar
 """
 
 def extract_first_number(s):
-    # 使用正则表达式来查找字符串中的数字
     match = re.search(r'\d+', s)
     if match:
         return match.group()
@@ -172,9 +171,9 @@ def parse_output(critic, evaluation_label, all_error_section_indexs):
             "precision": precision,
             "recall": recall,
             "f1_score": f1_score,
-            "tp_step": tp_step,  # 新增
-            "fp_step": fp_step,  # 新增
-            "fn_step": fn_step,  # 新增
+            "tp_step": tp_step,
+            "fp_step": fp_step, 
+            "fn_step": fn_step, 
         }
     
     except (json.JSONDecodeError, KeyError) as e:
