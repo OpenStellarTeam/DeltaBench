@@ -17,7 +17,6 @@ from openai import OpenAI
 import pandas as pd
 import os
 from collections import Counter
-# a90d794382a7afa4ab45481cfded282f  9f60909174aab8fbb99e89ef736dcdf7
 os.environ["OPENAI_API_KEY"] = ""
 
 
