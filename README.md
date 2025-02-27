@@ -28,7 +28,7 @@
 
 ## 🆕 News
 
-- **\[2025.02.27 soon\]** We will release the DeltaBench dataset in a month.
+- **\[2025.02.27 soon\]** We will release the DeltaBench dataset in a week.
 
   
 
