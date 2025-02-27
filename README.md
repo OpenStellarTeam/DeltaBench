@@ -28,9 +28,7 @@
 
 ## 🆕 News
 
-- **\[2025.02.29 soon]** We will release our paper. **Stay tuned** 🔥🔥🔥
-
-- **\[2025.02.27\]** We have released the DeltaBench dataset 🤗[huggingface](https://huggingface.co/datasets/OpenStellarTeam/xxx) 🚀🚀🚀
+- **\[2025.02.27 soon\]** We will release the DeltaBench dataset in a month.
 
   
 
