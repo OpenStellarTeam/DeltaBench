@@ -58,7 +58,7 @@
 ## 📊 Leaderboard
 
 <p align="center">
-  <img src="image/exp.jpg" width="800px"/>
+  <img src="image/exp.jpg" width="700px"/>
 </p>
 
 
