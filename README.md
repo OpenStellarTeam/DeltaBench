@@ -12,7 +12,7 @@
   <img src="image/intro_longcot.png" width="800px"/>
 </p>
 <p align="center">
-   🌐 <a href="https://openstellarteam.github.io/xxx/" target="_blank">Website</a> • 🤗 <a href="https://huggingface.co/datasets/OpenStellarTeam/xxx" target="_blank">Hugging Face</a> • ⏬ <a href="#data" target="_blank">Data</a> •   📃 <a href="https://huggingface.co/datasets/OpenStellarTeam/xxx" target="_blank">Paper</a>  <a href="xxx">   中文</a> | <a href="xxx">English 
+   🌐 <a href="https://openstellarteam.github.io/DeltaBench" target="_blank">Website</a> • 🤗 <a href="https://huggingface.co/datasets/OpenStellarTeam/DeltaBench" target="_blank">Hugging Face</a> • ⏬ <a href="#data" target="https://huggingface.co/datasets/OpenStellarTeam/DeltaBench/resolve/main/Deltabench_v1.jsonl?download=true">Data</a> •   📃 <a href="https://arxiv.org/abs/2502.19361" target="_blank">Paper</a> •  🖥️ <a href="https://github.com/OpenStellarTeam/DeltaBench" target="_blank">Github</a>
 </p> 
 
 
@@ -28,7 +28,9 @@
 
 ## 🆕 News
 
-- **\[2025.02.27 soon\]** We will release the DeltaBench dataset in a week.
+- **[Soon]** We plan to release more of our labeled datasets, which will be available for training and research purposes. **Stay tuned** 🔥🔥🔥
+
+- **\[2025.03.05\]** We have released the DeltaBench dataset 🤗[huggingface](https://huggingface.co/datasets/OpenStellarTeam/DeltaBench) 🚀🚀🚀.
 
   
 
