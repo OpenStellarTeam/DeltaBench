@@ -19,10 +19,9 @@ from tqdm.asyncio import tqdm
 from utils.prompt import *
 
 
-# os.environ["OPENAI_API_KEY"] = "replace your key here"
-# os.environ["OPENAI_BASE_URL"] = "replace your key here"
-os.environ["OPENAI_API_KEY"] = "9d0f097eae5d256de297859404694af7"
-os.environ["OPENAI_BASE_URL"] = "https://idealab.alibaba-inc.com/api/openai/v1"
+os.environ["OPENAI_API_KEY"] = "replace your key here"
+os.environ["OPENAI_BASE_URL"] = "replace your key here"
+
 
 
 def extract_first_number(s):
