@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DeltaBench">
+  <meta property="og:title" content="DeltaBench"/>
+  <meta property="og:description" content="DeltaBench: Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?"/>
+  <meta property="og:url" content="https://github.com/OpenStellarTeam/DeltaBench/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>DeltaBench</title>
+  <link rel="icon" type="image/x-icon" href="static/images/Stellar.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script>
+    // Function to sort table rows within a specific tbody
+    function sortTableRows(tbody) {
+      const rows = Array.from(tbody.rows).filter(row => !row.classList.contains('merged-row'));
+      rows.sort((a, b) => {
+        const aCO = parseFloat(a.cells[1].textContent);
+        const bCO = parseFloat(b.cells[1].textContent);
+        return bCO - aCO; // Descending order
+      });
+      return rows;
+    }
+
+    window.onload = function() {
+      const table = document.querySelector('table');
+      const tbodies = table.tBodies;
+      Array.from(tbodies).forEach(tbody => {
+        const sortedRows = sortTableRows(tbody);
+        sortedRows.forEach(row => tbody.removeChild(row));
+        sortedRows.forEach(row => tbody.appendChild(row));
+      });
+    };
+  </script>
+</head>
+<body>
+
+  <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2; /* Light color for headers */
+    }
+    .merged-row {
+        background-color: #e0e0e0; /* Light color for merged row */
+    }
+    .link-block a {
+      margin: 0 5px; /* 调整为适合的值 */
+    }
+
+  </style>
+  
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <img src="static/images/logo.jpg" alt="Icon" style="width:100%; max-width:100px; height:auto; vertical-align:middle; margin-right:10px;">
+              DeltaBench
+              <!-- : Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning? -->
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                  <span>Yancheng He</span><sup>*</sup><sup>1</sup>,</span>
+              <span class="author-block">
+                  <span>Shilong Li</span><sup>*</sup><sup>1</sup>,</span>
+              <span class="author-block">
+                  <span>Jiaheng Liu</span><sup>*,&dagger;</sup><sup>1</sup>,</span>
+              <span class="author-block">
+                  <span>Weixun Wang</span><sup>*</sup><sup>1</sup>,</span>
+              <span class="author-block">
+                  <span>Xingyuan Bu</span><sup>1</sup>,</span>
+              <span class="author-block">
+                  <span>Ge Zhang</span><sup>2</sup>,</span>
+              <br>
+              
+              <span class="author-block">
+                  Zhongyuan Peng<sup>1</sup>,</span>
+              <span class="author-block">
+                  Zhaoxiang Zhang<sup>3</sup>,</span>
+              <span class="author-block">
+                  Zhicheng Zheng<sup>1</sup>,</span>
+              <span class="author-block">
+                  Wenbo Su<sup>1</sup>,</span>
+              <span class="author-block">
+                  Bo Zheng<sup>1</sup></span>
+          </div>
+          
+          <div class="is-size-5 publication-authors" style="text-align: center;">
+            <!-- Affiliations -->
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+                <span class="author-block"><sup>1</sup>Alibaba Group</span>
+                <span class="author-block"><sup>2</sup>M-A-P</span>
+                <span class="author-block"><sup>3</sup>CASIA</span>
+            </div>
+        
+            <!-- Email -->
+            <!-- <div style="color: blue; margin-bottom: 1rem;">
+                <code>{heyancheng.hyc, ljh411989}@alibaba-inc.com</code>
+            </div> -->
+        
+            <!-- Contribution notes -->
+            <div class="eql-cntrb">
+                <small>
+                    <sup>*</sup>Equal Contribution  
+                    <sup>&dagger;</sup>Corresponding Author
+                </small>
+            </div>
+        </div>
+        
+          
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      
+                       <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                  <a href="https://arxiv.org/abs/2502.19361" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+
+                      <span class="link-block">
+                        <a href="https://huggingface.co/datasets/OpenStellarTeam/Chinese-SimpleQA" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <img src="static/images/hf-logo.png" alt="Hugging Face Logo" style="width: 20px; height: 20px;"/>
+                        </span>
+                          <span>Dataset</span>
+                        </a>
+                      </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/OpenStellarTeam/DeltaBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                      <span class="link-block">
+                        <a href="" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <img src="static/images/leaderboard.png" alt="leaderboard Logo" style="width: 20px; height: 25px;"/>
+                        </span>
+                          <span>leaderboard</span>
+                        </a>
+                      </span>
+               
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="text-align: left; text-indent: 2em;">
+            Recently, o1-like models have drawn significant attention, where these models produce the long Chain-of-Thought (CoT) reasoning steps to improve the reasoning abilities of existing Large Language Models (LLMs). In this paper, to understand the qualities of these long CoTs and measure the critique abilities of existing LLMs on these long CoTs, we introduce the <strong>DeltaBench</strong> including the generated long CoTs from different o1-like models (e.g., QwQ, DeepSeek-R1) for different reasoning tasks (e.g., Math, Code, General Reasoning), to measure the ability to <strong>D</strong>etect <strong>E</strong>rrors in <strong>L</strong>ong Co<strong>T</strong> Re<strong>A</strong>soning. Based on DeltaBench, we first perform fine-grained analysis of the generated long CoTs to discover the effectiveness and efficiency of different o1-like models. Then, we conduct extensive evaluations of existing process reward models (PRMs) and critic models to detect the errors of each annotated process, which aims to investigate the boundaries and limitations of existing PRMs and critic models. Finally, we hope that DeltaBench could guide developers to better understand the long CoT reasoning abilities of their models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<style>
+  .description2 p {
+    text-align: left; /* 左对齐 */
+    text-indent: 2em; /* 首行缩进 */
+    margin-bottom: 1em; /* 添加段落间距 */
+  }
+</style>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">💥 DeltaBench</h2>
+        <div class="image-container">
+          <img src="static/images/intro_longcot.png" alt="Illustration of the evaluation process for critic models and Process Reward Models (PRMs) for DeltaBench." style="max-width: 100%; height: auto;">
+        </div>
+        <div class="description2" style="margin-top: 30px; text-align: left; text-indent: 2em;">
+          <p><strong>DeltaBench</strong> is the first dataset to analyze the qualities of the long CoTs generated by o1-like models and evaluate the critique abilities to <strong>D</strong>etect <strong>E</strong>rror in Long Co<strong>T</strong> Re<strong>A</strong>soning of existing critic models and PRMs. Specifically, DeltaBench comprises 1,236 samples across diverse domains, including <strong>Math</strong>, <strong>Programming</strong>, <strong>PCB</strong> (physics, chemistry and biology), and <strong>General Reasoning</strong>. Each sample encompasses a problem, its corresponding long CoT solution, and comprehensive human annotations.</p>
+        </div>
+        <p align="center">
+          <img src="image/main.png" width="700px"/>
+        </p>
+
+        <h2 class="title is-3">💫 Introduction</h2>
+        <p style="text-align: left; text-indent: 2em;"><strong>DeltaBench</strong> introduces the first dataset to analyze the qualities of the long CoTs generated by o1-like models and evaluate the critique abilities to <strong>D</strong>etect <strong>E</strong>rror in Long Co<strong>T</strong> Re<strong>A</strong>soning of existing critic models and PRMs. Specifically, in DeltaBench, we first collect a diverse collection of long CoTs generated by various o1-like models (i.e., QwQ, DeepSeek-R1, and Gemini-2.0 Flash Thinking) across different reasoning tasks such as <strong>Math</strong>, <strong>Programming</strong>, <strong>PCB</strong> (physics, chemistry and biology), and <strong>General Reasoning</strong>.
+          Then, we divide each long CoT into different sections, where each section denotes an independent subtask, as shown in Figure 1.</p>
+
+        <p align="center">
+          <img src="image/crop_div_sections.png" width="700px"/>
+          <figcaption style="text-align:center;">Figure 1: An example of dividing sections.</figcaption>
+        </p>
+        
+        <p style="text-align: left; text-indent: 4em;">After that, each section includes the following tags:</p>
+        <ul style="margin-left: 20px; text-align: left; text-indent: 2em;">
+          <li style="margin-bottom: 1em;"><strong>1️⃣ Strategy Shift:</strong> whether this section introduces a new method or strategy attempt. If a new strategy is introduced, the specific step is annotated.</li>
+          <li style="margin-bottom: 1em;"><strong>2️⃣ Reasoning Usefulness:</strong> whether the reasoning in this section is useful.</li>
+          <li style="margin-bottom: 1em;"><strong>3️⃣ Reasoning Correctness:</strong> whether this section contains any errors. If an error is present, additional error-related fields are annotated, including the first step number at which the error occurs, explanation, and correction.</li>
+          <li style="margin-bottom: 1em;"><strong>4️⃣ Reflection Efficiency:</strong> whether this section contains reflection and whether the reflection is correct. If reflection is present, the step at which the reflection begins is annotated.</li>
+        </ul>
+        
+        <p align="center">
+          <img src="image/human_annotation.png" width="800px"/>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LeaderBoard</h2>
+        
+        <table style="width:100%;">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Recall</th>
+              <th>Precision</th>
+              <th>F1</th>
+              <th>Math F1</th>
+              <th>Code F1</th>
+              <th>PCB F1</th>
+              <th>General F1</th>
+            </tr>
+          </thead>
+          
+
+          <tbody id="prms">
+            <tr class="merged-row">
+              <td colspan="8" style="text-align: center; font-weight:bold;">Process Reward Models (PRMs)</td>
+            </tr>
+
+            <tr><td><strong>Qwen2.5-Math-PRM-7B</strong></td><td><strong>30.30</strong></td><td><strong>34.96</strong></td><td><strong>29.22</strong></td><td><strong>29.64</strong></td><td><strong>23.76</strong></td><td><u>31.09</u></td><td><u>34.19</u></td></tr>
+            <tr><td><u>Qwen2.5-Math-PRM-72B</u></td><td><u>28.16</u></td><td><u>29.37</u></td><td><u>26.38</u></td><td><u>24.16</u></td><td><u>22.02</u></td><td><strong>31.14</strong></td><td><strong>35.83</strong></td></tr>
+            <tr><td>Llama3.1-8B-PRM-Deepseek-Data</td><td>11.7</td><td>15.59</td><td>12.02</td><td>12.28</td><td>10.95</td><td>16.76</td><td>12.59</td></tr>
+            <tr><td>Llama3.1-8B-PRM-Mistral-Data</td><td>9.64</td><td>11.21</td><td>9.45</td><td>9.40</td><td>10.72</td><td>13.43</td><td>12.40</td></tr>
+            <tr><td>Skywork-o1-Qwen-2.5-1.5B</td><td>3.32</td><td>3.84</td><td>3.07</td><td>1.30</td><td>6.66</td><td>5.43</td><td>7.87</td></tr>
+            <tr><td>Skywork-o1-Qwen-2.5-7B</td><td>2.49</td><td>2.22</td><td>2.17</td><td>0.78</td><td>6.28</td><td>6.02</td><td>3.11</td></tr>
+            
+          </tbody>
+          
+        <tbody id="critics">
+              <tr class="merged-row">
+                <td colspan="8" style="text-align: center; font-weight:bold;">LLM as Critic Models</td>
+              </tr>
+            <tr><td><strong>GPT-4-turbo-128k</strong></td><td><strong>57.19</strong></td><td><strong>37.35</strong></td><td><strong>40.76</strong></td><td><strong>37.56</strong></td><td><strong>43.06</strong></td><td><u>45.54</u></td><td><u>42.17</u></td></tr>
+            <tr><td><u>GPT-4o-mini</u></td><td><u>49.88</u></td><td>35.37</td><td><u>37.82</u></td><td><u>33.26</u></td><td>37.95</td><td><strong>45.98</strong></td><td><strong>46.39</strong></td></tr>
+            <tr><td>Doubao-1.5-Pro</td><td>39.68</td><td><u>37.02</u></td><td>35.25</td><td>32.46</td><td><u>39.47</u></td><td>33.53</td><td>37.00</td></tr>
+            <tr><td>GPT-4o</td><td>36.52</td><td>32.48</td><td>30.85</td><td>28.61</td><td>28.53</td><td>39.25</td><td>36.50</td></tr>
+            <tr><td>Qwen2.5-Max</td><td>36.11</td><td>30.82</td><td>30.49</td><td>26.73</td><td>32.81</td><td>39.49</td><td>29.54</td></tr>
+            <tr><td>Gemini-1.5-pro</td><td>35.51</td><td>30.32</td><td>29.59</td><td>26.56</td><td>28.20</td><td>40.13</td><td>33.66</td></tr>
+            <tr><td>DeepSeek-V3</td><td>32.33</td><td>28.13</td><td>27.33</td><td>27.04</td><td>27.73</td><td>27.35</td><td>27.45</td></tr>
+            <tr><td>Llama-3.1-70B-Instruct</td><td>32.22</td><td>28.85</td><td>27.67</td><td>21.49</td><td>32.13</td><td>28.45</td><td>39.18</td></tr>
+            <tr><td>Qwen2.5-32B-Instruct</td><td>30.12</td><td>28.63</td><td>26.73</td><td>22.34</td><td>31.37</td><td>33.78</td><td>24.37</td></tr>
+            <tr><td>DeepSeek-R1</td><td>29.20</td><td>32.66</td><td>28.43</td><td>24.17</td><td>29.28</td><td>34.78</td><td>35.87</td></tr>
+            <tr><td>o1-preview</td><td>27.92</td><td>30.59</td><td>26.97</td><td>22.19</td><td>28.09</td><td>33.11</td><td>35.94</td></tr>
+            <!-- Gemini-2.0-flash-thinking excluded -->
+            <tr><td>Qwen2.5-14B-Instruct</td><td>26.64</td><td>27.27</td><td>24.73</td><td>21.51</td><td>29.05</td><td>29.98</td><td>20.59</td></tr>
+            <tr><td>Llama-3.1-8B-Instruct</td><td>25.71</td><td>28.01</td><td>24.91</td><td>18.12</td><td>32.17</td><td>27.30</td><td>29.93</td></tr>
+            <tr><td>o1-mini</td><td>22.90</td><td>22.90</td><td>19.89</td><td>16.71</td><td>21.70</td><td>20.37</td><td>26.94</td></tr>
+            <tr><td>Qwen2.5-7B-Instruct</td><td>21.99</td><td>19.61</td><td>18.63</td><td>11.61</td><td>25.92</td><td>29.85</td><td>15.18</td></tr>
+            <tr><td>DeepSeek-R1-Distill-Qwen-32B</td><td>17.19</td><td>18.65</td><td>16.28</td><td>13.02</td><td>23.55</td><td>15.05</td><td>11.56</td></tr>
+            <!-- Gemini-2.0-flash-thinking excluded -->
+            <tr><td>DeepSeek-R1-Distill-Qwen-14B</td><td>12.81</td><td>14.54</td><td>12.55</td><td>9.40</td><td>18.36</td><td>10.44</td><td>12.01</td></tr>
+          </tbody>
+        </table>
+        
+        <div class="description2" style="margin-top: 30px; text-align: left; text-indent: 2em;">
+          <p>
+            Results of PRMs and critic models on DeltaBench. For each group of models, <strong>bold</strong> indicates the best results, while <u>underline</u> indicates the second best results.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{He2025CanLL,
+      title={Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?},
+      author={Yancheng He and Shilong Li and Jiaheng Liu and Weixun Wang and Xingyuan Bu and Ge Zhang and Zhongyuan Peng and Zhaoxiang Zhang and Zhicheng Zheng and Wenbo Su and Bo Zheng},
+      year={2025},
+      url={https://api.semanticscholar.org/CorpusID:276618358}
+    }</code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This site is created based on <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> and is licensed under <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
