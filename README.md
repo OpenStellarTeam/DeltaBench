@@ -76,13 +76,7 @@ The startup command is as follows:
 - Step2: run the eval script:
 
   ```
-  python evaluation.py <model_name>
-  ```
-
-- Step3: we also provide a unified processing script for multiple model results. After running it, you can get a complete leaderboard:
-
-  ```
-  python get_leaderboard.py
+  python evaluation.py --call_modelname=$call_modelname --dataset=Deltabench_v1
   ```
 
   
